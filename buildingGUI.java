@@ -136,6 +136,26 @@ class user {
 					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/userinformation", "root", "123456");
 					Statement stmt = con.createStatement();
 					ResultSet rs = stmt.executeQuery("select * from userinfo where email='" + email + "' AND password='" + pass + "'");
+					/*
+
+
+					CLass.forname();
+					connection con = drivermanger.getconnection(url)
+					Statement stmt = con.createstatement;
+					resultset rs = stmt.executeQUery();
+					(rs.hasnext())
+					{
+						rs.getstring
+						}
+
+
+
+					 */
+
+
+
+
+
 
 					if (rs.next()) {
 						// User found
@@ -416,7 +436,6 @@ class EventManager extends user implements EventActionCallback {
 		AddEventButton.setBounds(340, 630, 110, 30);
 		AddEventButton.setFocusable(false);
 		AddEventButton.setBackground(new Color(248,250,229)); // Set button color// Set button color
-
 		AddEventButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -762,7 +781,7 @@ class EventVendor extends user {
 		EventVendorName.setForeground(Color.BLACK); // Set text color
 		logout.setFocusable(false);
 		logout.setBackground(new Color(248,250,229)); // Set button color// Set button color
-
+		logout.setBounds(480, 10, 100, 30);
 
 		logout.addActionListener(new ActionListener() {
 			@Override
@@ -774,16 +793,16 @@ class EventVendor extends user {
 		});
 
 		// Search Bar Components
-		searchEventLabel.setBounds(40, 60, 100, 30);
+		searchEventLabel.setBounds(30, 60, 120, 30);
 
 		searchEventLabel.setFont(new Font("Arial", Font.BOLD, 14));
 		searchEventLabel.setForeground(Color.BLACK); // Set text color
 
 		searchName = new TextField();
-		searchName.setBounds(150, 60, 230, 30);
+		searchName.setBounds(150, 60, 250, 30);
 
 		searchButton.setFocusable(false);
-		searchButton.setBounds(400, 60, 100, 30);
+		searchButton.setBounds(420, 60, 100, 30);
 		searchButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -866,16 +885,16 @@ class Participant extends user {
 				ParticipantFrame.setVisible(false);
 			}
 		});
-		searchEventLabel.setBounds(40, 60, 100, 30);
+		searchEventLabel.setBounds(30, 60, 120, 30);
 
 		searchEventLabel.setFont(new Font("Arial", Font.BOLD, 14));
 		searchEventLabel.setForeground(Color.BLACK); // Set text color
 
 		searchName = new TextField();
-		searchName.setBounds(150, 60, 230, 30);
+		searchName.setBounds(150, 60, 250, 30);
 
 		searchButton.setFocusable(false);
-		searchButton.setBounds(400, 60, 100, 30);
+		searchButton.setBounds(420, 60, 100, 30);
 		searchButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -889,7 +908,7 @@ class Participant extends user {
 		RefreshEventButton = new JButton("Refresh Events");
 		RefreshEventButton.setBounds(330, 630, 120, 30);
 		RefreshEventButton.setFocusable(false);
-		RefreshEventButton.setBackground(new Color(248,250,229)); // Set button color// Set button color
+		RefreshEventButton.setBackground(new Color(248,250,229));
 		RefreshEventButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -897,7 +916,7 @@ class Participant extends user {
 			}
 		});
 		eventsPanel = event.displayEvents(65,participantId,"Participant");
-		logout.setBackground(new Color(248,250,229)); // Set button color// Set button color
+		logout.setBackground(new Color(248,250,229)); 
 		ParticipantFrame.add(eventsPanel);
 		ParticipantFrame.add(participantName);
 		ParticipantFrame.add(logout);
@@ -1089,8 +1108,8 @@ class Event {
 			this.namee = nameee;
 		}
 		theEventName.setText(null);
-		dateChooser.setDate(null);  // Set the date to null
-		timeSpinner.setValue(new Date());  // Set the time to the current time
+		dateChooser.setDate(null);  
+		timeSpinner.setValue(new Date()); 
 		placeComboBox.setSelectedItem("Select");
 		cityComboBox.setSelectedItem("Select");
 		foodTypeComboBox.setSelectedItem("Select");
@@ -1126,7 +1145,7 @@ class Event {
 
 		addEventButton.setFocusable(false);
 		addEventButton.setBounds(200, 400, 100, 35);
-			addEventButton.setBackground(new Color(248,250,229)); // Set button color// Set button color
+			addEventButton.setBackground(new Color(248,250,229)); 
 
 			if (addEventButton.getActionListeners().length == 0) {
 		addEventButton.addActionListener(new ActionListener() {
@@ -1187,7 +1206,6 @@ class Event {
 
 
 
-		// Clear the event name field
 		addEventFrame.setVisible(false);
 		addEventFrame.setSize(500, 500);
 		addEventFrame.setLayout(null);
@@ -1201,7 +1219,6 @@ class Event {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		return dateFormat.format(new Date());
 	}
-	//convert date into formatted String
 	private String getSelectedDate() {
 
 		Date selectedDate = dateChooser.getDate();
@@ -1225,7 +1242,7 @@ class Event {
 
 		checkButton.setFocusable(false);
 		checkButton.setBounds(150, 100, 100, 40);
-		checkButton.setBackground(new Color(248,250,229)); // Set button color// Set button color
+		checkButton.setBackground(new Color(248,250,229));
 
 		checkButton.addActionListener(new ActionListener() {
 			@Override
@@ -1258,7 +1275,7 @@ class Event {
 		dEventNameTextField.setBounds(200, 50, 100, 40);
 
 		deleteButton.setFocusable(false);
-		deleteButton.setBackground(new Color(248,250,229)); // Set button color// Set button color
+		deleteButton.setBackground(new Color(248,250,229));
 
 		deleteButton.setBounds(150, 120, 100, 40);
 		if (deleteButton.getActionListeners().length == 0) {
@@ -1420,15 +1437,13 @@ class Event {
 
 	public JPanel displayEvents(int eventID,int userid , String Role) {
 
-		eventsPanel.setBackground(new Color(171,186,163)); // Set panel background color
+		eventsPanel.setBackground(new Color(248,244,236)); 
 		eventsPanel.setBounds(100, 140, 350, 480);
 		eventsPanel.setLayout(new BoxLayout(eventsPanel, BoxLayout.Y_AXIS));
-		// Retrieve events from the database based on the user id (EventManagerId)
+		
 		List<EventDescription> events = getEventsFromDatabase(eventID);
-		// Clear existing components in the eventsPanel
 		eventsPanel.removeAll();
 		System.out.println("in display events:" + userid);
-		// Create and add components for each event
 		for (int i = 0; i < events.size(); i++) {
 			EventDescription event = events.get(i);
 			JPanel eventPanel;
@@ -1441,21 +1456,20 @@ class Event {
 		}
 
 		eventsPanel.setLayout(new GridLayout(5, 0, 10, 10));
-		// Repaint the eventsPanel
 		eventsPanel.revalidate();
 		eventsPanel.repaint();
 		return eventsPanel;
 	}
 
 	private JPanel createEventPanel(EventDescription event, int choice ,int userid, String Role) {
-		JPanel eventPanel = new JPanel();  // Create a panel to display event information
+		JPanel eventPanel = new JPanel();  
 		JLabel eventNameLabel = new JLabel("Event Name: " + event.getEventName());
 		JLabel dateLabel = new JLabel("Date: " + event.getSelectedDate());
 		JLabel timeLabel = new JLabel("Time: " + event.getTime());
 		JLabel placeLabel = new JLabel("Place: " + event.getPlace());
 		JLabel attendeesLabel = new JLabel("Attendees: " + event.getAttendees());
 		JButton detailsButton = new JButton("Show Details");
-		detailsButton.setBackground(new Color(248,250,229)); // Set button color// Set button color
+		detailsButton.setBackground(new Color(248,250,229)); 
 
 
 
@@ -1474,7 +1488,6 @@ class Event {
 				if (choice==1){
 					showDetailsFrame(event,1,userid,Role);}
 				else showDetailsFrame(event,0,0,Role);
-				// Repaint the eventPanel
 				eventPanel.revalidate();
 				eventPanel.repaint();
 			}
@@ -1530,15 +1543,14 @@ class Event {
 		if (choice == 1) {
             JButton feedbackButton = new JButton("Provide Feedback");
             feedbackButton.setFocusable(false);
-			feedbackButton.setBackground(new Color(248,250,229)); // Set button color// Set button color
+			feedbackButton.setBackground(new Color(248,250,229)); 
 
 			JButton joinButton = new JButton("Join");
-			joinButton.setBackground(new Color(248,250,229)); // Set button color// Set button color
+			joinButton.setBackground(new Color(248,250,229)); 
 
 			joinButton.setFocusable(false);
             feedbackButton.setVisible(false);
             PaymentFrame pay = new PaymentFrame(userID, event.getId(), false);
-            // Check if the user has already sent a join request for this event
 
             if (Objects.equals(role, "Participant")) {
                 if (pay.hasUserPaid(userID, event.getId())) {
@@ -1583,7 +1595,6 @@ class Event {
                         joinButton.setEnabled(false);
                     }
                 });
-                // Add the joinButton to your panel
                 outerPanel.add(joinButton, BorderLayout.SOUTH);
             }
 			else{
@@ -1597,7 +1608,6 @@ class Event {
 						}
 					});
 
-					// Add the feedbackButton to your panel
 					outerPanel.add(feedbackButton, BorderLayout.SOUTH);
 				}
         }
@@ -1617,7 +1627,7 @@ class Event {
 				pstmt.setInt(1, Integer.parseInt(eventID));
 				pstmt.setInt(2, userID);
 				ResultSet rs = pstmt.executeQuery();
-				return rs.next(); // Returns true if a request is approved, false otherwise
+				return rs.next();
 			}
 		} catch (ClassNotFoundException | SQLException ex) {
 			ex.printStackTrace();
@@ -1682,7 +1692,6 @@ class Event {
 		}
 	}
 	private int getEventCreatorID(int eventID, Connection con) throws SQLException {
-		// Retrieve the ID of the event creator based on the eventID
 		String query = "SELECT userID FROM eventinformation WHERE eventID = ?";
 		try (PreparedStatement pstmt = con.prepareStatement(query)) {
 			pstmt.setInt(1, eventID);
@@ -1690,7 +1699,7 @@ class Event {
 			if (rs.next()) {
 				return rs.getInt("userID");
 			} else {
-				return -1; // Invalid eventID
+				return -1; 
 			}
 		}
 	}
@@ -1959,20 +1968,16 @@ class PaymentFrame extends JFrame {
 		String expiryDate = expiryDateField.getText().trim();
 		String cvv = cvvField.getText().trim();
 
-		// Regular expressions for card validation
 		String cardNumberRegex = "^[0-9]{16}$";
 		String expiryDateRegex = "^(0[1-9]|1[0-2])/[0-9]{2}$";
 		String cvvRegex = "^[0-9]{3}$";
 
-		// Validate card number
 		Pattern cardNumberPattern = Pattern.compile(cardNumberRegex);
 		Matcher cardNumberMatcher = cardNumberPattern.matcher(cardNumber);
 
-		// Validate expiry date
 		Pattern expiryDatePattern = Pattern.compile(expiryDateRegex);
 		Matcher expiryDateMatcher = expiryDatePattern.matcher(expiryDate);
 
-		// Validate CVV
 		Pattern cvvPattern = Pattern.compile(cvvRegex);
 		Matcher cvvMatcher = cvvPattern.matcher(cvv);
 
@@ -2040,47 +2045,5 @@ public class buildingGUI {
 
 		user gui = new user();
         gui.HomeFrame();
-		gui.userLogin();
-        EventVendor EV = new EventVendor(7,"Event Vendor");
-        EV.EventVendorGui(true,"ibtisamEV");
-        EventManager em = new EventManager();
-        em.EventManagerGui(true,"hello",8,"Event Manager");
-        Participant p = new Participant(9,"Participant");
-        p.ParticipantGui(true,"IbtisamP");
-        PaymentFrame payy = new PaymentFrame(9,"151",false);
-        payy.hasUserPaid(9,"151");
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//		user guii =new user();
-//        guii.HomeFrame();
-//		gui.userLogin();
-//        EventVendor EV = new EventVendor(7,"Event Vendor");
-//        EV.EventVendorGui(true,"ibtisamEV");
-//        EventManager em = new EventManager();
-//        em.EventManagerGui(true,"hello",8,"Event Manager");
-//        Participant p = new Participant(9,"Participant");
-//        p.ParticipantGui(true,"IbtisamP");
-//        PaymentFrame payy = new PaymentFrame(9,"151",false);
-//        payy.hasUserPaid(9,"151");
